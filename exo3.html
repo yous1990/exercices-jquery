@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>exo3affiche mot de passe</title>
+  <script
+  src="http://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+  <!-- creer un formulaire avec un input mdp.
+  mdp saisi doit être masqué .A coté de l'input un boutton voir qui permet d'affiché le mdp en clair lorsque enfonce la souris sur celle-ci puis le mdp se masque ;
+-->
+<form method="post" action="">
+  <p>mot de passe <input type="password" id="monmdp">
+    <button type="button" id="mybutton"> voir</button></p>
+  </form>
+  <script type="text/javascript">
+  $(function(){
+    // au ponite de la souris sur le boutton dont l'id est passé $()
+    $('#mybutton').mousedown(function(){
+      // le mot de passe s'affiche en clair
+      $('#monmdp').attr('type','text');
+      $('#mybutton').mouseup(function(){
+        $('#monmdp').attr('type','password');
+        $('#mybutton').mouseleave(function(){
+          $('#monmdp').attr('type','password');//la methode attr permet de selectionner un attribut et lui affecter une valeur on peut attraper n'importe quelle attribut et lui donner n'importe quelle valeur
+        });
+      });
+    });
+  });
+  </script>
+
+</body>
+</html>

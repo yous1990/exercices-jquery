@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>exo8 animation</title>
+    <script
+        src="http://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+    <style media="screen">
+
+
+    div {
+      width: 200px;
+      height: 200px;
+      position: relative;
+
+    }
+    </style>
+  </head>
+  <body>
+    <!-- Vous créez 4 boutons pour animer 4 <div> carrés.
+
+    Animation 1 : monter de 200px. Ne marche qu'une fois.
+    Animation 2 : partir en diagonale haut-droite de 200px. Ne marche qu'une fois.
+    Animation 3 : partir en diagonale bas-droite de 100px puis en diagonale haut-droite de 100px. A chaque clic, le carré continue son déplacement.
+    Animation 4 : partir à droite de 400px puis revenir à gauche. L'animation continue indéfiniment. -->
+
+
+    <button id="anim1">Animation 1</button>
+    <div id="un" style="background-color : olive;"></div>
+    <hr>
+    <button id="anim2">Animation 2</button>
+    <div id="deux" style="background-color : peru;"></div>
+    <hr>
+    <button id="anim3">Animation 3</button>
+    <div id="trois" style="background-color : pink;"></div>
+    <hr>
+    <button id="anim4">Animation 4</button>
+    <div id="quatre" style="background-color : brown;"></div>
+    <hr>
+<script type="text/javascript">
+$(function(){
+  $('#anim1').click(function(){
+    $('#un').animate({top: "-200px"},'fast')
+  });
+// });
+// $(function(){
+  $('#anim2').click(function(){
+    //2eme div deplacement en diagonale vers le haut droite
+    $('#deux').animate({left: "+200px",top: "-200px"},'fast')
+  });
+// });
+// // 3eme div
+// $(function(){
+  $('#anim3').click(function(){
+    // deplacement en diagonale vers le haut droite et vers le bas
+    $('#trois').animate({left: "+=100px",top: "-=100px"}).animate({left:"+=100px",top:"+=100px"},'fast')
+  });
+  // quatrième animation
+  function anim4(){
+    $("#quatre").animate({left:"400px"}, 300).animate({left: "0px"}, 300, anim4);
+  }
+  //
+  $('#anim4').click(anim4); //appel de la fonction sans parametre
+
+  //      //appelle de la fonction anim4
+  
+  //         $("#anim4").click(anim4);
+  // // on appelle la fonction anim4 pour la première fois lors du clic sur le bouton pour qu'elle démarre        });
+
+
+});
+
+</script>
+
+  </body>
+</html>

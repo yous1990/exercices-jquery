@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>exo4 focus style</title>
+    <script
+        src="http://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+        <style>
+
+        </style>
+
+  </head>
+  <!-- creer un formulaire avec un input pseudo et un input mdp .lorsqu'on clique dans l'un des champs, sa bordure devient verte et de 2px d'epaisseurquand on le quitte il reprend sa forme initiale -->
+  <body>
+    <form class="" action="" method="post">
+      <label for="pseudo">pseudo</label>
+      <input type="text" class="focus">
+      <label for="mdp">mdp</label>
+      <input type="password" class="focus">
+      <button type="submit" name="button">se connecter</button>
+    </form>
+    <script type="text/javascript">
+        $(function(){
+          $('.focus').focusin(function(){
+          $(this).css('border','2px solid green');
+          $('focus').focusout(function(){
+            // retabli la valeur css initiale
+          $(this).css('border','');
+        });
+        });
+
+      });
+      //autre façon d'ecrire la methode css permet de faire + de css avec jq
+        // $(this).css({'border','2px solid green';'background:yellow'});
+        // this :mot clé qui renvoie systematique à l'objet (la balise ) dans laquelle on se situe
+        // focusin va avec le focusout;ils s'appliquent aussi aux enfants.il y existe ausii focus qui va avec blur:
+        // il ne s'appliquent qu'aux inputs de formulaire/
+        // addClass("class1 class2");
+    </script>
+
+
+  </body>
+</html>

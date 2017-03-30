@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>exo5</title>
+    <script
+        src="http://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <!-- <p>creez un bouton et deux paragraphes de classe info vides .lorsqu'on clique sur le boutton,vous ajoutez du textedans chaque paragraphe grace au script jquery. à faire de 2 methodes differentes</p> -->
+    <h3>exercice5</h3>
+    <button type="button" name="button">Ajouter du texte</button>
+    <p class="info"></p>
+    <p class="info"></p>
+    <p class="info"></p>
+    <script>
+    			$(function(){
+            //mettre du texte a la premiere class
+            $('button').click(function(){
+           $('.info').eq(0).html('<p style="color:red">texte à afficher au premier div au click du boutton</p>');
+          //  autre facon $(.'info').eq(0).html("le texte");
+           $('.info').eq(1).html('<p style=":grey">texte à afficher au deuxième  div au click du boutton</p>');
+           $('.info').eq(2).html('<p>texte à afficher au troisième div au click du boutton</p>');
+          // la methode .html()permet d'ajouter des balises(interpreter)
+          //la methode  .text() permet d'ajouter du texte mais ne pas de balises car la balise s'affichera(non intepreter)
+          //la methode  .append()est limiter car ajoute du texte à chaque click accroche le string passer en argument à la balise selectionnée en tant qu'enfant : il n'ecrase pas le texte existant il ajoute le nouveau texte. cette methode peut recevoir des balise html
+
+    });
+});
+
+    		</script>
+  </body>
+</html>

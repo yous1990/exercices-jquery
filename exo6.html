@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>exo6animation </title>
+    <script
+        src="http://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+        <style media="screen">
+          .madiv{
+            height: 300px;
+            width: 40%;
+            background: rgb(54, 233, 17);
+          }
+        </style>
+
+  </head>
+  <body>
+    <!--  au clic sur un boutton faire apparaitre un div de couleur apparait en fondu en 1s puis au bout de 1s disparait en fondu en 1s
+    dans un second temps faites en sorte que le boutton disparaisse au debut de l'amation puis reapparaisse à la fin de l'animation-->
+    <button type="button" id="mybutton">disparatre au clic</button>
+    <div style="display:none;" class="madiv" >
+
+    </div>
+    <script type="text/javascript">
+    $(function(){
+      $('#mybutton').click(function(){
+        // le boutton disparaitre qd la div apparait et vis versa
+        $(this).hide();
+        // cette ligne fait apparaitre la div 2s ,met un delai 2s et la fait disparaitre
+        $('.madiv').fadeIn(2000).delay(2000).fadeOut(1000,function(){
+        $('#mybutton').show();});
+        });
+
+        });
+        // delay est une pose
+      //   les methodes fadeIn et fadeOut peuvent recevoir une fonction en argument (callback)cette fonction ne se declenche que lorsque le fadeIn out le fadeOutest completement executé . cette fonction callback peut recevoir tout code personnalisé exemple (appel ajax affichage de formulaire)
+      // // });
+
+
+    </script>
+
+  </body>
+</html>

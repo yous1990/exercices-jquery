@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script
+        src="http://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+        <style type="text/css" >
+          .rouge{color:red;}
+          .bleu{background: cyan;width: 300px;}
+        </style>
+  </head>
+  <body>
+    <!--ajouter du jquery qui permet de mettre en rouge le texte au survol (il redevient noir quand on le quitte ) et qui permet de mettre ou de retirer le bg du texte en bleu quand on clique sur le bouton.) en utilisant le style css  -->
+    <p id ="survol"> ce texte va changer de couleur au survol </p>
+    <button id="classBleu"> le background du texte devient bleu</button>
+    <script>
+      $(function(){
+        // au survol
+        $("#survol").hover(function(){
+          // la methode hover attend 2 fonctions en argument : mouseenter et mousehover
+          //pas de point pour les class qd on va le chercher
+          $(this).addClass('rouge');
+          // addClass permet d'ajouter une class à l'element selectionner prealablement ;toggleClass alterne (ajout et enleve)
+        },function(){ $("#survol").removeClass("rouge");});
+          $("#classBleu").click(function(){
+            // ajoute la class et enleve au click ici au click le style css de la classBleu au p et l'enlève si on reclick.
+            $("#survol").toggleClass('bleu');
+          });
+
+      });
+    </script>
+  </body>
+</html>

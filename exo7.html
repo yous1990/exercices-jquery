@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>exo7</title>
+    <script
+        src="http://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+        <style >
+          .menu {
+            float: left;
+            width: 150px;
+            /*display: block;*/
+          }
+          .sous-menu{
+            display:none;
+            padding: 0;
+          }
+          li{
+            list-style: none;
+          }
+        </style>
+  </head>
+  <body>
+    <!--au survol de un des liens   -->
+    <ul>
+      <li class="menu"><a href="#"> lien du menu 1</a>
+        <ul class="sous-menu">
+          <li><a href="#">lien sous menu 1</a></li>
+          <li><a href="#">lien sous menu 1</a></li>
+          <li><a href="#">lien sous menu 1</a></li>
+          <li><a href="#">lien sous menu 1</a></li>
+        </ul>
+      </li>
+      <li class="menu"><a href="#"> lien du menu 2 </a>
+        <ul class="sous-menu">
+          <li><a href="#">lien sous menu 1</a></li>
+          <li><a href="#">lien sous menu 1</a></li>
+          <li><a href="#">lien sous menu 1</a></li>
+          <li><a href="#">lien sous menu 1</a></li>
+        </ul>
+      </li>
+    </ul>
+    <script type="text/javascript">
+
+        // $(".menu").hover(function(){
+        //
+        //   $(this).find(".sous-menu").slideDown(1000, function(){
+        //     // this et find permet de cibler les descendants de la balise selectionnée.
+        //     $('.menu').mouseleave(function(){
+        //       $(".sous-menu").slideUp().css("background","green");
+        //     });
+        //   });
+          // $(this).mouseleave(function({
+              // $(".sous-menu").slideUp();
+              // la fonction hover prends 2 parametres(mouseenteret mouseleave) donc mieux utiliser separement mouseenter et mouseleave
+                $(function(){
+              $(".menu").mouseenter(function(){
+                // la function stop()permet d'arreter l'animation courrante .ici il permet de derouler le sous menu qui etait caché au paravant avec la methode slideDown()
+
+                $(this).find(".sous-menu").stop().slideDown(1000).css("background","green");
+
+              });
+
+              $(".menu").mouseleave(function(){
+
+                $(this).find(".sous-menu").stop().slideUp(200);
+
+              });
+
+            });
+
+
+
+
+    </script>
+
+  </body>
+</html>
